@@ -1,5 +1,4 @@
 /* -----------------------FORM-START----------------------- */
-
 .form {
     border: 2px dashed gray;
     padding: 15px;
@@ -18,7 +17,7 @@
     vertical-align: middle;
 }
 
-td > img {
+.table td > img {
     max-height: 50px;
     height: auto;
     width: auto;
@@ -56,7 +55,7 @@ td > img {
     border: 1px solid #888;
     width: 50%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
+    animation-name: animate;
     animation-duration: 0.4s;
 }
 
@@ -64,13 +63,14 @@ td > img {
     max-width: 100%;
 }
 
-@-webkit-keyframes animatetop {
-    from {top: -300px; opacity: 0} 
-    to {top: 0; opacity: 1}
-}
-
-@keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
+@keyframes animate {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
 }
 /* -----------------------MODAL-END----------------------- */

@@ -179,14 +179,14 @@
         container = document.getElementById('container');
     
     theadRow.innerHTML = `<th class="sorting">Student  <span class="glyphicon glyphicon-sort"></span></th>` +
-                        `<th class="sorting">email  <span class="glyphicon glyphicon-sort"></span></th>` +
-                        `<th>Profile picture</th><th>Skils</th><th>controls</th>`;
+                        `<th class="sorting">email  <span class="glyphicon glyphicon-sort"></span></th><th>Profile picture</th>` +
+                        `<th class="sorting">Skils  <span class="glyphicon glyphicon-sort"></th><th>controls</th>`;
     table.className = 'table table-hover';
     table.appendChild(thead);
     table.appendChild(tbody);
 
     container.appendChild(table);
-    container.insertBefore(form, table)
+    container.insertBefore(form, table);
 
     form.className = 'form form-horizontal';
     formGroup1.className = 'form-group';
@@ -343,7 +343,7 @@
         if (e.target.className === 'glyphicon glyphicon-trash') {
             let index = e.target.parentNode.parentNode.rowIndex - 1;
             students.splice(index, 1);
-            tbody.removeChild(tbody.childNodes[index]);      
+            tbody.removeChild(tbody.childNodes[index]);
         }
     };
 
@@ -406,14 +406,18 @@
                     input.parentNode.classList.remove('has-success');
                     input.parentNode.classList.add('has-error');
                     if (input.type === 'email' && input.validity.patternMismatch) {
-                        input.placeholder = 'Invalid email address'
+                        input.value = null;
+                        input.placeholder = 'Invalid email address';
+                    } else if (input.name === 'skills' && input.validity.patternMismatch) {
+                        input.value = null;
+                        input.placeholder = 'Skills should be comma separated';
                     } else {
                         input.placeholder = `${placeholderOptions[input.name]} Error: ${input.validationMessage}`;
                     }               
                 }
             }
         });
-         return errorFlag;     
+        return errorFlag;     
     };
 
     let modal = document.createElement('div'),
